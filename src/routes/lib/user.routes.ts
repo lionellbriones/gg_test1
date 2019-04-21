@@ -53,21 +53,34 @@ class UserRoutes {
 
   updateUser() {
     return (req: Request, res: Response) => {
-      const data = req.body;
-      res.json({
-        data,
-        message: "Updated user"
-      });
+      const _id = req.params.id;
+      const body = req.body;
+      User.findByIdAndUpdate(_id, { ...body })
+        .then(data => {
+          res.json({
+            data,
+            message: "Updated user"
+          });
+        })
+        .catch(err => {
+          res.status(400).send({ message: err });
+        });
     };
   }
 
   deleteUser() {
     return (req: Request, res: Response) => {
-      const data = req.body;
-      res.json({
-        data,
-        message: "Deleted user"
-      });
+      const _id = req.params.id;
+      User.findByIdAndRemove(_id)
+        .then(data => {
+          res.json({
+            data,
+            message: "Removed user"
+          });
+        })
+        .catch(err => {
+          res.status(400).send({ message: err });
+        });
     };
   }
 }
@@ -78,8 +91,8 @@ const userRoutes = new UserRoutes();
 router
   .get("", userRoutes.getUsers())
   .get("/:id", userRoutes.getUser())
-  .post("", userRoutes.addUser())
-  .patch("", userRoutes.updateUser())
-  .delete("", userRoutes.deleteUser());
+  .patch("/:id", userRoutes.updateUser())
+  .delete("/:id", userRoutes.deleteUser())
+  .post("", userRoutes.addUser());
 
 export const user = router;
