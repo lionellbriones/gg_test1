@@ -17,6 +17,10 @@ const UserSchema = new Schema(
     account_type: {
       type: String,
       required: [true, "Price is required."]
+    },
+    password: {
+      type: String,
+      required: [true, "Password is required."]
     }
     // product_id: {
     //   type: Schema.Types.ObjectId,
