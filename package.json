@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsnd --respawn ./src/index.ts",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest --detectOpenHandles --forceExit --verbose"
   },
   "keywords": [
     "test"
@@ -13,6 +13,7 @@
   "author": "Lionell Briones",
   "license": "ISC",
   "devDependencies": {
+    "@types/bluebird": "^3.5.26",
     "@types/body-parser": "^1.17.0",
     "@types/dotenv": "^6.1.1",
     "@types/errorhandler": "0.0.32",
@@ -23,7 +24,10 @@
     "@types/mongoose-paginate": "^5.0.6",
     "@types/morgan": "^1.7.35",
     "@types/node": "^11.13.6",
+    "@types/supertest": "^2.0.7",
+    "bluebird": "^3.5.4",
     "jest": "^24.7.1",
+    "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "ts-lint": "^4.5.1",
     "ts-node-dev": "^1.0.0-pre.32",
