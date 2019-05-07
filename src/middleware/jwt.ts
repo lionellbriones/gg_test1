@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import config from "../helper/config";
-import { request } from "https";
 
 const generateToken = (
   data: Object,
